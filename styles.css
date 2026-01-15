@@ -248,6 +248,43 @@ a {
     padding: 0 24px;
 }
 
+/* Hero Video */
+.hero-video-container {
+    position: relative;
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto 40px;
+    border-radius: 16px;
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+    background: var(--bg-secondary);
+    border: 1px solid var(--glass-border);
+}
+
+.hero-video-container .video-glow {
+    position: absolute;
+    inset: -30px;
+    background: radial-gradient(ellipse at center, var(--accent-primary) 0%, transparent 70%);
+    opacity: 0.25;
+    z-index: -1;
+    filter: blur(40px);
+    animation: videoGlow 4s ease-in-out infinite;
+}
+
+@keyframes videoGlow {
+    0%, 100% { opacity: 0.15; }
+    50% { opacity: 0.3; }
+}
+
+.hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
 .hero-badge {
     position: relative;
     display: inline-flex;
@@ -783,5 +820,86 @@ a {
     .cta-secondary {
         width: 100%;
         justify-content: center;
+    }
+}
+
+/* ================================
+   Legal Pages (Privacy Policy, Terms of Service)
+   ================================ */
+.legal-content {
+    min-height: 100vh;
+    padding: 120px 24px 80px;
+    background: var(--bg-primary);
+}
+
+.legal-title {
+    font-size: 48px;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+    letter-spacing: -0.02em;
+}
+
+.legal-updated {
+    color: var(--text-tertiary);
+    font-size: 14px;
+    margin-bottom: 48px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.legal-section {
+    margin-bottom: 40px;
+}
+
+.legal-section h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 16px;
+    letter-spacing: -0.01em;
+}
+
+.legal-section h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 24px 0 12px;
+}
+
+.legal-section p {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 16px;
+    font-size: 16px;
+}
+
+.legal-section ul {
+    margin: 16px 0;
+    padding-left: 24px;
+}
+
+.legal-section li {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 8px;
+    font-size: 16px;
+}
+
+.legal-section li strong {
+    color: var(--text-primary);
+}
+
+@media (max-width: 768px) {
+    .legal-title {
+        font-size: 32px;
+    }
+
+    .legal-section h2 {
+        font-size: 20px;
+    }
+
+    .legal-content {
+        padding: 100px 16px 60px;
     }
 }
