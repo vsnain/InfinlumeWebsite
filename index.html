@@ -51,7 +51,7 @@
         <!-- Hero Content -->
         <div class="hero-content">
             <!-- Video -->
-            <div class="hero-video-container">
+            <!-- <div class="hero-video-container">
                 <div class="video-glow"></div>
                 <iframe
                     src="https://www.youtube-nocookie.com/embed/wULG18MXKz4?autoplay=1&mute=1&loop=1&playlist=wULG18MXKz4&controls=0&showinfo=0&rel=0&modestbranding=1"
@@ -62,11 +62,11 @@
                     referrerpolicy="strict-origin-when-cross-origin"
                     class="hero-video"
                 ></iframe>
-            </div>
+            </div> -->
 
             <div class="hero-badge">
                 <span class="badge-glow"></span>
-                <span>AI-POWERED LANGUAGE LEARNING</span>
+                <span>PERSONALIZED LANGUAGE LEARNING</span>
             </div>
 
             <h1 class="hero-title">
@@ -75,7 +75,7 @@
             </h1>
 
             <p class="hero-subtitle">
-                Master grammar with an AI tutor that adapts to your level.<br>
+                Master grammar with a tutor that adapts to your level.<br>
                 No more one-size-fits-all textbooks.
             </p>
 
@@ -148,24 +148,63 @@
                 <h2 class="section-title">See It In Action</h2>
             </div>
 
-            <div class="screenshots-grid">
-                <div class="screenshot-card">
-                    <div class="screenshot-glow cyan"></div>
-                    <img src="assets/onboarding-pyramid.webp" alt="Personal Grammar Tutor" class="screenshot-img">
-                    <div class="screenshot-label">Personal Journey</div>
+            <div class="carousel-container">
+                <button class="carousel-arrow carousel-arrow-left" onclick="moveCarousel(-1)" aria-label="Previous">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </button>
+
+                <div class="carousel-viewport">
+                    <div class="carousel-track">
+                        <div class="screenshot-card">
+                            <img src="assets/Pyramid.jpg" alt="Learning Pyramid" class="screenshot-img">
+                            <div class="screenshot-label">Learning Pyramid</div>
+                        </div>
+                        <div class="screenshot-card">
+                            <img src="assets/Hive.jpg" alt="Knowledge Hive" class="screenshot-img">
+                            <div class="screenshot-label">Knowledge Hive</div>
+                        </div>
+                        <div class="screenshot-card">
+                            <img src="assets/HiveZoomed.jpg" alt="Hive Details" class="screenshot-img">
+                            <div class="screenshot-label">Hive Details</div>
+                        </div>
+                        <div class="screenshot-card">
+                            <img src="assets/Slide1.jpg" alt="Lesson Overview" class="screenshot-img">
+                            <div class="screenshot-label">Lesson Overview</div>
+                        </div>
+                        <div class="screenshot-card">
+                            <img src="assets/Slide2DeepDive.jpg" alt="Deep Dive" class="screenshot-img">
+                            <div class="screenshot-label">Deep Dive</div>
+                        </div>
+                        <div class="screenshot-card">
+                            <img src="assets/StudyMode.jpg" alt="Study Mode" class="screenshot-img">
+                            <div class="screenshot-label">Study Mode</div>
+                        </div>
+                        <div class="screenshot-card">
+                            <img src="assets/Flashcard.jpg" alt="Flashcards" class="screenshot-img">
+                            <div class="screenshot-label">Flashcards</div>
+                        </div>
+                        <div class="screenshot-card">
+                            <img src="assets/Question.jpg" alt="Practice Questions" class="screenshot-img">
+                            <div class="screenshot-label">Practice Questions</div>
+                        </div>
+                        <div class="screenshot-card">
+                            <img src="assets/Result.jpg" alt="Results" class="screenshot-img">
+                            <div class="screenshot-label">Results</div>
+                        </div>
+                        <div class="screenshot-card">
+                            <img src="assets/Activity.jpg" alt="Activity Log" class="screenshot-img">
+                            <div class="screenshot-label">Activity Log</div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="screenshot-card featured">
-                    <div class="screenshot-glow gold"></div>
-                    <img src="assets/onboarding-hive-zoomed-out.webp" alt="Visual Knowledge Map" class="screenshot-img">
-                    <div class="screenshot-label">Knowledge Hive</div>
-                </div>
-
-                <div class="screenshot-card">
-                    <div class="screenshot-glow mint"></div>
-                    <img src="assets/onboarding-hive-zoomed-in.webp" alt="Bite-Sized Lessons" class="screenshot-img">
-                    <div class="screenshot-label">Micro Lessons</div>
-                </div>
+                <button class="carousel-arrow carousel-arrow-right" onclick="moveCarousel(1)" aria-label="Next">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </button>
             </div>
         </div>
     </section>
@@ -219,7 +258,7 @@
                 <div class="footer-links">
                     <a href="privacy-policy.html">Privacy Policy</a>
                     <a href="terms-of-service.html">Terms of Service</a>
-                    <a href="mailto:contact@infinlume.com">Contact</a>
+                    <!-- <a href="mailto:contact@infinlume.com">Contact</a> -->
                 </div>
 
                 <p class="footer-copyright">&copy; 2026 InfinLume. All rights reserved.</p>
@@ -255,6 +294,108 @@
                 navbar.classList.remove('scrolled');
             }
         });
+
+        // Carousel functionality with seamless infinite loop
+        const track = document.querySelector('.carousel-track');
+        const originalCards = Array.from(document.querySelectorAll('.carousel-track .screenshot-card'));
+        const totalOriginal = originalCards.length;
+        let currentIndex = 0;
+        let isTransitioning = false;
+
+        function getVisibleCount() {
+            if (window.innerWidth <= 768) return 1;
+            if (window.innerWidth <= 1024) return 2;
+            return 3;
+        }
+
+        function getGap() {
+            if (window.innerWidth <= 768) return 16;
+            return 24;
+        }
+
+        // Clone slides for seamless looping
+        function setupClones() {
+            // Remove existing clones
+            track.querySelectorAll('.clone').forEach(c => c.remove());
+
+            const visibleCount = getVisibleCount();
+
+            // Clone last N slides and prepend
+            for (let i = totalOriginal - 1; i >= totalOriginal - visibleCount; i--) {
+                const clone = originalCards[i].cloneNode(true);
+                clone.classList.add('clone');
+                track.insertBefore(clone, track.firstChild);
+            }
+
+            // Clone first N slides and append
+            for (let i = 0; i < visibleCount; i++) {
+                const clone = originalCards[i].cloneNode(true);
+                clone.classList.add('clone');
+                track.appendChild(clone);
+            }
+        }
+
+        function getCardWidth() {
+            const card = track.querySelector('.screenshot-card');
+            return card ? card.offsetWidth : 0;
+        }
+
+        function updateCarousel(animate = true) {
+            const visibleCount = getVisibleCount();
+            const gap = getGap();
+            const cardWidth = getCardWidth();
+            // Offset by visibleCount because of prepended clones
+            const offset = (currentIndex + visibleCount) * (cardWidth + gap);
+
+            if (!animate) {
+                track.style.transition = 'none';
+            } else {
+                track.style.transition = 'transform 0.4s ease';
+            }
+
+            track.style.transform = `translateX(-${offset}px)`;
+
+            if (!animate) {
+                // Force reflow
+                track.offsetHeight;
+            }
+        }
+
+        function moveCarousel(direction) {
+            if (isTransitioning) return;
+
+            isTransitioning = true;
+            currentIndex += direction;
+            updateCarousel(true);
+        }
+
+        // Handle seamless loop reset after transition
+        track.addEventListener('transitionend', () => {
+            const visibleCount = getVisibleCount();
+
+            // If we've gone past the end, jump to the real first slide
+            if (currentIndex >= totalOriginal) {
+                currentIndex = 0;
+                updateCarousel(false);
+            }
+            // If we've gone before the start, jump to the real last slide
+            else if (currentIndex < 0) {
+                currentIndex = totalOriginal - 1;
+                updateCarousel(false);
+            }
+
+            isTransitioning = false;
+        });
+
+        // Update on resize
+        window.addEventListener('resize', () => {
+            setupClones();
+            updateCarousel(false);
+        });
+
+        // Initialize
+        setupClones();
+        updateCarousel(false);
     </script>
 </body>
 </html>
