@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Account - InfinLume</title>
+    <meta name="description" content="Request deletion of your InfinLume account and associated data.">
+    <link rel="icon" type="image/png" href="assets/app-icon.png">
+    <link rel="stylesheet" href="styles.css?v=2">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .delete-form-container {
+            margin-top: 40px;
+            padding: 40px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+        }
+        .delete-form-container iframe {
+            width: 100%;
+            min-height: 500px;
+            border: none;
+        }
+        .delete-info-box {
+            margin: 24px 0;
+            padding: 20px 24px;
+            background: rgba(255, 215, 0, 0.1);
+            border: 1px solid var(--accent-gold);
+            border-radius: 12px;
+        }
+        .delete-info-box h3 {
+            color: var(--accent-gold);
+            margin-bottom: 12px;
+            font-size: 16px;
+        }
+        .delete-info-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .delete-info-box li {
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+        }
+        .delete-timeline {
+            display: flex;
+            gap: 24px;
+            margin-top: 32px;
+            flex-wrap: wrap;
+        }
+        .timeline-step {
+            flex: 1;
+            min-width: 200px;
+            padding: 24px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            text-align: center;
+        }
+        .timeline-step .step-number {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-glow));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            font-weight: 700;
+            color: var(--bg-primary);
+        }
+        .timeline-step h4 {
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+        .timeline-step p {
+            color: var(--text-secondary);
+            font-size: 14px;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar scrolled">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">
+                <img src="assets/app-icon.png" alt="InfinLume" class="nav-icon">
+                <span class="nav-brand">INFINLUME</span>
+            </a>
+
+            <div class="nav-links">
+                <a href="/#features" class="nav-link">Features</a>
+                <a href="/#screenshots" class="nav-link">Screenshots</a>
+                <a href="/#download" class="nav-link">Download</a>
+            </div>
+
+            <a href="/#download" class="nav-cta">
+                <span>Get Started</span>
+            </a>
+
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="/#features" class="mobile-link" onclick="toggleMobileMenu()">Features</a>
+        <a href="/#screenshots" class="mobile-link" onclick="toggleMobileMenu()">Screenshots</a>
+        <a href="/#download" class="mobile-link" onclick="toggleMobileMenu()">Download</a>
+    </div>
+
+    <!-- Legal Content -->
+    <section class="legal-content">
+        <div class="container">
+            <h1 class="legal-title">Delete Your Account</h1>
+            <p class="legal-updated">Request account and data deletion</p>
+
+            <div class="legal-section">
+                <p>We're sorry to see you go. If you'd like to delete your InfinLume account and all associated data, please submit a request using the form below. We'll process your request and confirm deletion via email.</p>
+            </div>
+
+            <div class="delete-timeline">
+                <div class="timeline-step">
+                    <div class="step-number">1</div>
+                    <h4>Submit Request</h4>
+                    <p>Fill out the form below with your account email</p>
+                </div>
+                <div class="timeline-step">
+                    <div class="step-number">2</div>
+                    <h4>Verification</h4>
+                    <p>We'll verify your identity to protect your data</p>
+                </div>
+                <div class="timeline-step">
+                    <div class="step-number">3</div>
+                    <h4>Deletion</h4>
+                    <p>Your account and data will be permanently deleted</p>
+                </div>
+            </div>
+
+            <div class="delete-info-box">
+                <h3>What gets deleted:</h3>
+                <ul>
+                    <li>Your account profile and login credentials</li>
+                    <li>All learning progress and history</li>
+                    <li>Quiz scores and achievements</li>
+                    <li>Personalized learning preferences</li>
+                    <li>Any other data associated with your account</li>
+                </ul>
+            </div>
+
+            <div class="legal-section">
+                <h2>Important Information</h2>
+                <ul>
+                    <li><strong>Processing Time:</strong> Deletion requests are typically processed within 30 days.</li>
+                    <li><strong>Irreversible:</strong> Once deleted, your data cannot be recovered. You'll need to create a new account if you wish to use InfinLume again.</li>
+                    <li><strong>Confirmation:</strong> You'll receive an email confirmation once your account has been deleted.</li>
+                </ul>
+            </div>
+
+            <div class="delete-form-container">
+                <h2 style="margin-bottom: 24px;">Request Account Deletion</h2>
+
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLScFbfW8gYvhcB2sM6L87k6VJWTPaYfkpUgWoOCfmHceToDwiQ/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+            </div>
+
+            <div class="legal-section" style="margin-top: 40px;">
+                <h2>Questions?</h2>
+                <p>If you have any questions about the deletion process or need assistance, please contact us at <a href="mailto:privacy@infinlume.com" style="color: var(--accent-primary);">privacy@infinlume.com</a>.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="assets/app-icon.png" alt="InfinLume" class="footer-icon">
+                    <span class="footer-name">INFINLUME</span>
+                </div>
+
+                <div class="footer-links">
+                    <a href="privacy-policy.html">Privacy Policy</a>
+                    <a href="terms-of-service.html">Terms of Service</a>
+                    <a href="delete-account.html">Delete Account</a>
+                </div>
+
+                <p class="footer-copyright">&copy; 2026 InfinLume. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const btn = document.querySelector('.mobile-menu-btn');
+            menu.classList.toggle('active');
+            btn.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
