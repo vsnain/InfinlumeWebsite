@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - InfinLume</title>
+    <meta name="description" content="Get in touch with the InfinLume team. We'd love to hear from you.">
+    <link rel="icon" type="image/png" href="assets/app-icon.png">
+    <link rel="stylesheet" href="styles.css?v=2">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .contact-box {
+            margin-top: 40px;
+            padding: 48px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            text-align: center;
+        }
+        .contact-box h2 {
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+        .contact-box p {
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+        }
+        .email-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 32px;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-glow));
+            color: var(--bg-primary);
+            font-size: 18px;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 12px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .email-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(100, 255, 218, 0.3);
+        }
+        .email-icon {
+            width: 24px;
+            height: 24px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar scrolled">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">
+                <img src="assets/app-icon.png" alt="InfinLume" class="nav-icon">
+                <span class="nav-brand">INFINLUME</span>
+            </a>
+
+            <div class="nav-links">
+                <a href="/#features" class="nav-link">Features</a>
+                <a href="/#screenshots" class="nav-link">Screenshots</a>
+                <a href="/#download" class="nav-link">Download</a>
+            </div>
+
+            <a href="/#download" class="nav-cta">
+                <span>Get Started</span>
+            </a>
+
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="/#features" class="mobile-link" onclick="toggleMobileMenu()">Features</a>
+        <a href="/#screenshots" class="mobile-link" onclick="toggleMobileMenu()">Screenshots</a>
+        <a href="/#download" class="mobile-link" onclick="toggleMobileMenu()">Download</a>
+    </div>
+
+    <!-- Contact Content -->
+    <section class="legal-content">
+        <div class="container">
+            <h1 class="legal-title">Contact Us</h1>
+            <p class="legal-updated">We'd love to hear from you</p>
+
+            <div class="legal-section">
+                <p>Have questions, feedback, or need support? Reach out to us and we'll get back to you as soon as possible.</p>
+            </div>
+
+            <div class="contact-box">
+                <h2>Get in Touch</h2>
+                <p>Send us an email and we'll respond within 24-48 hours.</p>
+                <a href="mailto:dev@infinlume.com" class="email-link">
+                    <svg class="email-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                    dev@infinlume.com
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="assets/app-icon.png" alt="InfinLume" class="footer-icon">
+                    <span class="footer-name">INFINLUME</span>
+                </div>
+
+                <div class="footer-links">
+                    <a href="privacy-policy.html">Privacy Policy</a>
+                    <a href="terms-of-service.html">Terms of Service</a>
+                    <a href="delete-account.html">Delete Account</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+
+                <p class="footer-copyright">&copy; 2026 InfinLume. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const btn = document.querySelector('.mobile-menu-btn');
+            menu.classList.toggle('active');
+            btn.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
